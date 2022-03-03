@@ -13,6 +13,10 @@ class Products with ChangeNotifier {
       description: 'EA SPORTS FIFA',
       price: 59.99,
       isFavorite: false,
+      isSports: true,
+      isBattleRoyal: false,
+      isHorror: false,
+      isStrategy: false,
     ),
     Product(
       id: 'p2',
@@ -21,6 +25,10 @@ class Products with ChangeNotifier {
       description: 'PES 21',
       price: 59.99,
       isFavorite: false,
+      isSports: true,
+      isBattleRoyal: false,
+      isHorror: false,
+      isStrategy: false,
     ),
     Product(
       id: 'p3',
@@ -30,6 +38,10 @@ class Products with ChangeNotifier {
       description: 'CS:GO',
       price: 59.99,
       isFavorite: false,
+      isSports: false,
+      isBattleRoyal: true,
+      isHorror: false,
+      isStrategy: false,
     ),
     Product(
       id: 'p4',
@@ -39,13 +51,39 @@ class Products with ChangeNotifier {
       description: 'PUBG',
       price: 59.99,
       isFavorite: false,
+      isSports: false,
+      isBattleRoyal: true,
+      isHorror: false,
+      isStrategy: false,
     )
   ];
 
+  // var _showFavoritesOnly = false;
+
   List<Product> get items {
+    //  if (_showFavoritesOnly) {
+    //  return _items.where((prodItem) => prodItem.isFavorite).toList();
+    // }
     return [..._items];
   }
 
+  /////////// getuje favorite iteme
+  List<Product> get favoriteItems {
+    return _items.where((prodItem) => prodItem.isFavorite).toList();
+  }
+  //////////
+//////////////////////////////////////////////////// za popup menu
+  // void showFavoritesOnly() {
+  // _showFavoritesOnly = true;
+  // notifyListeners();
+  //}
+
+  //void showAll() {
+  // _showFavoritesOnly = false;
+  //notifyListeners();
+  //}
+
+/////////////////////////////////////////////////////
   Product findById(String id) {
     return _items
         .firstWhere((prod) => prod.id == id); // prepoznaje element po ID
