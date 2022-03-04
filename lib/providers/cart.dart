@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, non_constant_identifier_names, avoid_types_as_parameter_names
 
 import 'package:flutter/cupertino.dart';
 
@@ -25,6 +25,22 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
+//////////////////////////////////////////////////////////// računa ukupnu cijenu dodanih elemenata
+  double get totalAmount {
+    var total = 0.0;
+    _items.forEach((key, CartItem) {
+      total += CartItem.price! * CartItem.quantity!;
+    });
+    return total;
+  }
+///////////////////////////////////////////////////////////
+
+////////////////////////////////////////// broji elemente dodane u korpu
+  int get itemCount {
+    return _items.length;
+  }
+///////////////////////////////////////////
+
   void addItem(String productId, double price, String title) {
     if (_items.containsKey(productId)) {
       _items.update(
@@ -46,5 +62,13 @@ class Cart with ChangeNotifier {
             quantity: 1),
       );
     }
+    notifyListeners();
   }
+
+////////////////////////////////////// brisanje proizvoda iz korpe
+  void removeItem(String productId) {
+    _items.remove(productId);
+    notifyListeners();
+  }
+//////////////////////////////////////////////////////////////////
 }

@@ -1,7 +1,11 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, constant_identifier_names, unused_field
 
 import 'package:flutter/material.dart';
+import 'package:game_shop/providers/cart.dart';
+import 'package:game_shop/screens/cart_screen.dart';
+import 'package:game_shop/widgets/badge.dart';
 import 'package:game_shop/widgets/products_grid.dart';
+import 'package:provider/provider.dart';
 
 enum FilterOptions {
   //umijesto int
@@ -18,6 +22,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   var _showOnlyFavorites = false;
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<Cart>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -44,6 +49,17 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               )
             ],
             icon: Icon(Icons.more_horiz),
+          ),
+          Consumer<Cart>(
+            builder: (ctx, cartData, _) => Badge(
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(CartScreen.routeName);
+                },
+                icon: Icon(Icons.shopping_bag),
+              ),
+              value: cart.itemCount.toString(),
+            ),
           )
         ],
       ),

@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:game_shop/providers/cart.dart';
 import 'package:game_shop/providers/product.dart';
 import 'package:game_shop/screens/product_deatail_screen.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
     //////////////////////////izgled kartica////////////////////////////
     return GridTile(
       child: GestureDetector(
@@ -45,7 +47,9 @@ class ProductItem extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         trailing: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            cart.addItem(product.id!, product.price!, product.title!);
+          },
           icon: Icon(Icons.shopping_cart),
           color: Theme.of(context).accentColor,
         ),
