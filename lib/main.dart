@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:game_shop/providers/cart.dart';
+import 'package:game_shop/providers/orders.dart';
 import 'package:game_shop/providers/products.dart';
 import 'package:game_shop/screens/cart_screen.dart';
+import 'package:game_shop/screens/orders_screen.dart';
 import 'package:game_shop/screens/product_deatail_screen.dart';
 import 'package:game_shop/screens/products_overview_screen.dart';
 import 'package:provider/provider.dart';
@@ -22,11 +24,14 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider(
             create: ((ctx) => Cart()),
-          )
+          ),
+          ChangeNotifierProvider(
+            create: ((ctx) => Orders()),
+          ),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Welcome to Flutter',
+          //title: 'Welcome to Flutter',
           theme: ThemeData(
               primarySwatch: Colors.indigo,
               accentColor: Colors.red,
@@ -34,7 +39,8 @@ class MyApp extends StatelessWidget {
           home: ProductsOverviewScreen(),
           routes: {
             ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
-            CartScreen.routeName: (ctx) => CartScreen()
+            CartScreen.routeName: (ctx) => CartScreen(),
+            OrdersScreen.routeName: (ctx) => OrdersScreen()
           },
         ));
   }

@@ -1,6 +1,4 @@
-// ignore_for_file: unused_local_variable, use_key_in_widget_constructors, prefer_const_constructors
-
-import 'dart:ffi';
+// ignore_for_file: unused_local_variable, use_key_in_widget_constructors, prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:game_shop/providers/products.dart';
