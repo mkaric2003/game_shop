@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:game_shop/screens/orders_screen.dart';
+import 'package:game_shop/screens/user_products_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -36,6 +37,7 @@ class AppDrawer extends StatelessWidget {
                 Navigator.of(context).pushReplacementNamed('/');
               },
             ),
+            const Divider(),
             ListTile(
               leading: const Icon(
                 Icons.payment,
@@ -47,7 +49,23 @@ class AppDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed(OrdersScreen.routeName);
               },
-            )
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(
+                Icons.edit,
+                color: Colors.white,
+                size: 30,
+              ),
+              title: const Text(
+                'MANAGE PRODUCTS',
+                style: TextStyle(color: Colors.white, fontSize: 17),
+              ),
+              onTap: () {
+                Navigator.of(context)
+                    .pushReplacementNamed(UserProductsScreen.routeName);
+              },
+            ),
           ],
         ),
       ),

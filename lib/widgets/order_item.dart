@@ -20,7 +20,7 @@ class _OrderItemState extends State<OrderItem> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 30,
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(5),
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
@@ -54,7 +54,7 @@ class _OrderItemState extends State<OrderItem> {
             if (_expanded)
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                height: min(widget.order.products!.length * 20 + 20, 180),
+                height: min(widget.order.products!.length * 25 + 20, 180),
                 child: ListView(
                   children: widget.order.products!
                       .map(
