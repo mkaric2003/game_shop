@@ -11,10 +11,10 @@ class Product with ChangeNotifier {
   final String? description;
   final double? price;
   bool isFavorite;
-  final bool? isBattleRoyal;
-  final bool? isStrategy;
-  final bool? isSports;
-  final bool? isHorror;
+  // bool isBattleRoyal;
+  // bool isStrategy;
+  // bool isSports;
+  //bool isHorror;
 
   Product({
     @required this.id,
@@ -24,10 +24,10 @@ class Product with ChangeNotifier {
     @required this.description,
     @required this.price,
     @required this.isFavorite = false,
-    @required this.isBattleRoyal = false,
-    @required this.isStrategy = false,
-    @required this.isSports = false,
-    @required this.isHorror = false,
+    // @required this.isBattleRoyal = false,
+    //@required this.isStrategy = false,
+    //@required this.isSports = false,
+    //@required this.isHorror = false,
   });
 
   void toggleFavoriteStatus() {

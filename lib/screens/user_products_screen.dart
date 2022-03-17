@@ -1,4 +1,7 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, duplicate_ignore
+
 import 'package:flutter/material.dart';
+import '../screens/edit_product_screen.dart';
 import 'package:game_shop/widgets/app_drawer.dart';
 import '../widgets/user_product_item.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +18,9 @@ class UserProductsScreen extends StatelessWidget {
         title: const Text('Your Products'),
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(EditProductScreen.routeName);
+            },
             icon: const Icon(Icons.add),
           )
         ],
@@ -30,6 +35,7 @@ class UserProductsScreen extends StatelessWidget {
           ], begin: Alignment.topLeft, end: Alignment.bottomRight),
         ),
         child: Padding(
+          // ignore: prefer_const_constructors
           padding: EdgeInsets.all(8),
           child: ListView.builder(
             itemCount: productsData.items.length,

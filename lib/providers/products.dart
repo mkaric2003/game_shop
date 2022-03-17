@@ -14,10 +14,10 @@ class Products with ChangeNotifier {
           'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.',
       price: 59.99,
       isFavorite: false,
-      isSports: true,
-      isBattleRoyal: false,
-      isHorror: false,
-      isStrategy: false,
+      // isSports: false,
+      //isBattleRoyal: true,
+      //isHorror: false,
+      //isStrategy: false,
     ),
     Product(
       id: 'p2',
@@ -27,10 +27,10 @@ class Products with ChangeNotifier {
           'This product is an updated edition of eFootball PES 2020 (launched in September, 2019) containing the latest player data and club rosters.',
       price: 59.99,
       isFavorite: false,
-      isSports: true,
-      isBattleRoyal: false,
-      isHorror: false,
-      isStrategy: false,
+      // isSports: false,
+      //isBattleRoyal: true,
+      //isHorror: false,
+      //isStrategy: false,
     ),
     Product(
       id: 'p3',
@@ -41,10 +41,10 @@ class Products with ChangeNotifier {
           'Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.',
       price: 59.99,
       isFavorite: false,
-      isSports: false,
-      isBattleRoyal: true,
-      isHorror: false,
-      isStrategy: false,
+      // isSports: false,
+      //isBattleRoyal: true,
+      //isHorror: false,
+      //isStrategy: false,
     ),
     Product(
       id: 'p4',
@@ -55,10 +55,10 @@ class Products with ChangeNotifier {
           'Land on strategic locations, loot weapons and supplies, and survive to become the last team standing across various, diverse Battlegrounds.',
       price: 59.99,
       isFavorite: false,
-      isSports: false,
-      isBattleRoyal: true,
-      isHorror: false,
-      isStrategy: false,
+      // isSports: false,
+      //isBattleRoyal: true,
+      //isHorror: false,
+      //isStrategy: false,
     ),
     Product(
       id: 'p5',
@@ -69,10 +69,10 @@ class Products with ChangeNotifier {
           'Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.',
       price: 59.99,
       isFavorite: false,
-      isSports: false,
-      isBattleRoyal: true,
-      isHorror: false,
-      isStrategy: false,
+      // isSports: false,
+      //isBattleRoyal: true,
+      //isHorror: false,
+      //isStrategy: false,
     )
   ];
 
@@ -107,8 +107,22 @@ class Products with ChangeNotifier {
         .firstWhere((prod) => prod.id == id); // prepoznaje element po ID
   }
 
-  void addProduct() {
-    //_items.add(value);
+  void addProduct(Product product) {
+    final newProduct = Product(
+      id: DateTime.now().toString(),
+      title: product.title,
+      imageUrl: product.imageUrl,
+      description: product.description,
+      price: product.price,
+      //isBattleRoyal: product.isBattleRoyal,
+      //isStrategy: product.isStrategy,
+      //isSports: product.isSports,
+      //isHorror: product.isHorror
+    );
+
+    _items.add(newProduct);
+    //_items.insert(0, newProduct);
+
     notifyListeners();
   }
 }
